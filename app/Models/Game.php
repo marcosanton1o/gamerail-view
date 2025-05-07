@@ -12,23 +12,12 @@ class Game extends Model
     protected $fillable = [
         'title',
         'price',
-        'developer_id',
-        'publisher_id',
+        'developer',
+        'publisher',
+        'total_sales',
+        'image',
         'description',
         'release_date',
-        'game_category_id'
+        'category'
     ];
-    public function category()
-{
-    return $this->belongsTo(GameCategory::class, 'game_category_id');
-}
-public function developer()
-{
-    return $this->belongsTo(Company::class, 'developer_id');
-}
-
-public function publisher()
-{
-    return $this->belongsTo(Company::class, 'publisher_id');
-}
 }

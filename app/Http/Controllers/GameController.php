@@ -3,8 +3,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\GameRequest;
 use App\Models\Game;
-use App\Models\Company;
-use App\Models\GameCategory;
 class GameController extends Controller
 {
     public function index()
@@ -16,9 +14,7 @@ class GameController extends Controller
 
     public function create()
     {
-        $companies = Company::all();
-        $categories = GameCategory::all();
-       return view('games.create', compact('companies', 'categories'));
+       return view('games.create');
     }
 
     public function store(GameRequest $request)
@@ -26,11 +22,11 @@ class GameController extends Controller
     $game = new Game;
     $game->title            = $request->title;
     $game->price            = $request->price;
-    $game->developer_id     = $request->developer_id;
-    $game->publisher_id     = $request->publisher_id;
+    $game->developer     = $request->developer;
+    $game->publisher    = $request->publisher;
     $game->description      = $request->description;
     $game->release_date     = $request->release_date;
-    $game->game_category_id = $request->game_category_id;
+    $game->category = $request->category;
     $game->save();
 
     session()->flash('message', 'O jogo: ' . $request->title . ' foi adicionado com sucesso!');
@@ -43,9 +39,7 @@ class GameController extends Controller
     public function edit(string $id)
     {
         $game = Game::findOrFail($id);
-        $companies = Company::all();
-        $categories = GameCategory::all();
-            return view('games.edit', compact('game', 'companies', 'categories'));
+            return view('games.edit', compact('game'));
         }
 
         public function update(GameRequest $request, $id)

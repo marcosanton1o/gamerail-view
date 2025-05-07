@@ -19,11 +19,11 @@ return new class extends Migration
             $table->string('image')->default('images/default.png');
             $table->integer('total_sales')->default(0);
             $table->date('release_date')->nullable();
+            $table->string('publisher');
+            $table->string('developer');
+            $table->string('category');
 
-            $table->foreignId('publisher_id')->constrained('companies')->onDelete('cascade');
-            $table->foreignId('developer_id')->constrained('companies')->onDelete('cascade');
-            $table->foreignId('game_category_id')->constrained('game_categories')->onDelete('cascade');
-
+        
             $table->timestamps();
         });
     }

@@ -22,13 +22,16 @@ class GameRequest extends FormRequest
     public function rules()
 {
     return [
+
         'title' => 'required|string|min:2|max:30|unique:games,title',
         'price' => 'required',
-        'game_category_id' => 'required',
+        'developer' => 'required',
+        'publisher' => 'required',
+        'total_sales' => 'required',
+        'image' => 'required',
+        'description'  => 'nullable|string|min:2|max:200',
         'release_date' => 'nullable|date',
-        'developer_id' => 'required',
-        'publisher_id' => 'required',
-        'description' => 'nullable|string|min:2|max:200',
+        'category' => 'required'
     ];
 }
 }
