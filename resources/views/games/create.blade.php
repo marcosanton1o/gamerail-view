@@ -41,9 +41,8 @@
             <x-input-label for="game_category_id" :value="__('Categoria*')" />
             <select name="game_category_id" id="game_category_id" class="w-full rounded-md border-none bg-purple-600 text-white placeholder-white shadow-inner ring-0 transition-all focus:border-fuchsia-500 focus:bg-purple-700 focus:text-white focus:ring-2 focus:ring-white">
                 <option value="">Selecione a categoria</option>
-                @foreach ($categories as $category)
+
                 <option value="{{ $category->id }}">{{ $category->name }}</option>
-                @endforeach
             </select>
         </div>
         <div class="flex-1 mb-4">
@@ -59,18 +58,16 @@
             <x-input-label for="developer_id" :value="__('Desenvolvedora*')" />
             <select class="w-full rounded-md border-none bg-purple-600 text-white placeholder-white shadow-inner ring-0 transition-all focus:border-fuchsia-500 focus:bg-purple-700 focus:text-white focus:ring-2 focus:ring-white" name="developer_id" id="developer_id" required class="w-full rounded-md border-gray-300 p-2">
                 <option value="">Selec. a desenvolvedora</option>
-                @foreach ($companies as $company)
+
                 <option value="{{ $company->id }}">{{ $company->name }}</option>
-                @endforeach
             </select>
         </div>
         <div class="flex-1 mb-4">
             <x-input-label for="publisher_id" :value="__('Publicadora*')" />
             <select name="publisher_id" id="publisher_id" required class="w-full rounded-md border-none bg-purple-600 text-white placeholder-white shadow-inner ring-0 transition-all focus:border-fuchsia-500 focus:bg-purple-700 focus:text-white focus:ring-2 focus:ring-white">
                 <option value="">Selecione a publicadora</option>
-                @foreach ($companies as $company)
+
                 <option value="{{ $company->id }}">{{ $company->name }}</option>
-                @endforeach
             </select>
         </div>
     </div>
